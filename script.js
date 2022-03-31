@@ -41,6 +41,15 @@ const inputOperator = (operator) => {
     currentNumber = '0'
 }
 
+const percents = document.querySelector(".percentange")
+
+percents.addEventListener('click', (event) =>{ 
+    inputOperator(event.target.value) 
+    calculate() 
+    updateScreen(currentNumber) 
+})
+
+
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', () => {
@@ -62,9 +71,6 @@ const calculate = () => {
             break
         case "/":
             result = parseFloat(prevNumber) / parseFloat(currentNumber)
-            break
-        case "%":
-            result = parseFloat(prevNumber) % parseFloat(currentNumber)
             break
         default:
             return
